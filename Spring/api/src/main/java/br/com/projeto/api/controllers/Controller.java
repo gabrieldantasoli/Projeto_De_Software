@@ -1,6 +1,7 @@
 package br.com.projeto.api.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,6 +16,24 @@ public class Controller {
     @GetMapping("/pt-br")
     public String HelloPtBr() {
         String msg = "Hello, Brazil!";
+        return msg;
+    }
+
+    @GetMapping("/eua")
+    public String HelloGringo() {
+        String msg = "Hello, Gringo!";
+        return msg;
+    }
+
+    @GetMapping("/welcome")
+    public String welcome() {
+        String msg = "Welcome, Programador desconhecido!";
+        return msg;
+    }
+
+    @GetMapping("/welcome/{name}")
+    public String welcome(@PathVariable String name) {
+        String msg = "Welcome " + name + " !";
         return msg;
     }
 
